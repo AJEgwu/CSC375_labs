@@ -1,0 +1,20 @@
+1. What file format is used for this binary? And what architecture is it compiled for?
+   File format: ELF 64-bit
+   Architecture: x86-64
+
+2. What are some of the names of segment/sections you find?
+   .text: program code like main, wordcount_sort, etc.
+   .data: initialized global/static variables
+   .bss: uninitialized variables
+   .rodata: read-only data
+   .plt/.got: dynamic linking stubs and tables
+   .init/.fini: startup and cleanup routines
+   .debug_*: debug info
+
+3. What segment/section contains main (the function) and what is the address of main? (It should be the same as what you saw in gdb)
+   main is inside the .text section. Address: 0x00000000000014e8
+
+4. Do you see the stack segment anywhere? What about the heap? Explain.
+   No, because stack and heap are created dynamically by the operating system at runtime.
+   objdump only shows what’s in the executable: code, static data, and metadata.
+   At runtime, the OS allocates memory regions for stack, for function calls and locals, and heap, for malloc/free.

@@ -1,0 +1,10 @@
+Address of main: 0x608ad085e189
+Address of stack variable i: 0x7ffcff298594
+Address of static foo: 0x608ad0861018
+Address of static stuff: 0x608ad0861010
+Heap buf1: 0x608af5df22a0
+Heap buf2: 0x608af5df2310
+recur(3) stack variable j @ 0x7ffcff298564
+recur(2) stack variable j @ 0x7ffcff298534
+recur(1) stack variable j @ 0x7ffcff298504
+recur(0) stack variable j @ 0x7ffcff2984d4

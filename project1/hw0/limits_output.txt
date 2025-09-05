@@ -1,0 +1,3 @@
+stack size: 8388608 bytes
+process limit: -1
+max file descriptors: 1048576

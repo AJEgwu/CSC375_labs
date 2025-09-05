@@ -1,0 +1,24 @@
+Questions
+
+1. What is the value of argv?
+   argv = 0x7fffffffd208
+
+2. What is pointed to by argv?
+   *argv = "/workspaces/CSC375_labs/project1/hw0/words/wc"
+
+3. What is the address of main?
+   main is located at 0x5555555554e8
+
+4. What happens when running info stack?
+   Shows the current call stack, i.e. #0 main.
+
+5. What happens when running info frame?
+   Displays detailed information about the current stack frame like arguments, local variables, and registers.
+
+6. Which registers hold recognizable values?
+   - rdi = 2 (argc)
+   - rsi = 0x7fffffffd208 (argv pointer)
+   - *argv = program path string
+   - rbp/rsp = current stack frame pointers
+   - rip = instruction pointer inside main
+

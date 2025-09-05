@@ -1,0 +1,29 @@
+Questions
+
+1. Which addresses from ./map are defined in the executable?
+   main @ 0x608ad085e189: defined in the executable, lives in the .text section
+   foo @ 0x608ad0861018: defined in the executable, lives in .bss (uninitialized static)
+   stuff @ 0x608ad0861010: defined in the executable, lives in .data (initialized static)
+
+2. Important segments and what they are used for:
+   .text: program instructions, compiled code
+   .data: initialized global/static variables
+   .bss: uninitialized global/static variables
+   stack: local variables, function calls, recursion
+   heap: dynamically allocated memory via malloc/free
+
+3. What direction is the stack growing in?
+   Downward. Each recursive call shows a decreasing address: 0x7ffcff298564: 0x7ffcff298534: 0x7ffcff298504: 0x7ffcff2984d4
+
+4. How large is the stack frame for each recursive call?
+   About 0x30 or 48 bytes between successive j addresses.
+   e.g. 0x7ffcff298564 − 0x7ffcff298534 = 0x30.
+
+5. Where is the heap? What direction is it growing in?
+   Heap starts at 0x608af5df22a0.
+   Grows upward with each malloc:
+   e.g. buf1 = 0x...22a0, buf2 = 0x...2310
+
+6. Are the two malloc()ed memory areas contiguous?
+   Yes, buf2, 0x2310, directly follows buf1, 0x22a0, with only 0x70, 112 bytes, in between.
+   The small gap is expected because of the allocator bookkeeping overhead, but they are in the same contiguous heap region.

@@ -35,40 +35,34 @@ Mutators take a reference to a list as first arg.
 #include <string.h>
 #include <stdlib.h>
 
-/* Representation of a word count object.
-   Includes next field for constructing singly linked list*/
+/* Representation of a word count object. */
 struct word_count {
     char *word;
     int count;
     struct word_count *next;
 };
 
-/* Introduce a type name for the struct */
 typedef struct word_count WordCount;
 
-/* Initialize a word count list, updating the reference to the list */
+/* Initialize a word count list */
 void init_words(WordCount **wclist);
 
 /* Length of a word count list */
 size_t len_words(WordCount *wchead);
 
-/* Find a word in a word_count list */
+/* Find a word in a list */
 WordCount *find_word(WordCount *wchead, char *word);
 
-/* Insert word with count=1, if not already present; increment count if present. */
+/* Insert word with count=1 or increment if present */
 void add_word(WordCount **wclist, char *word);
 
-//static int wordcntcmp(const WordCount *wc1, WordCount *wc2);
-
-/* print word counts to a file */
+/* Print word counts */
 void fprint_words(WordCount *wchead, FILE *ofile);
 
-/* Inserts a word into the list in order. Assumes the existing list is already sorted */
+/* Insert in order */
 void wordcount_insert_ordered(WordCount **wclist, WordCount *elem, bool less(const WordCount *, const WordCount *));
 
-/* Sort a word count list in place */
+/* Sort */
 void wordcount_sort(WordCount **wclist, bool less(const WordCount *, const WordCount *));
 
 #endif /* word_count_h */
-
-
